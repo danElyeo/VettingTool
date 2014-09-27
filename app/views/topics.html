@@ -1,0 +1,17 @@
+<p>This is the TOPICS page.</p>
+<div class="container">
+	<div class="row text-center topic-bg">
+		<!-- For each topic available, create topic containers -->
+		<div class="col-md-12">
+			<div class="topic-container" ng-repeat="topic in topics">
+				<h3>{{topic}}</h3>
+				<!-- For each lecture with this topic, show the preview video -->
+				<div class="lecture-holder center-block" ng-repeat="lecture in lectures | filter: { topic:topic }">
+					<p>{{lecture.name}}</p>
+					<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
+					</sign-video>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

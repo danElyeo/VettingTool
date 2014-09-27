@@ -1,0 +1,20 @@
+{
+	"lectures":
+	[
+		{
+			"name":"Conducting an Experiment",
+			"preview":"Conducting_an_Experiment/Preview/preview_video_CondExperiment_320",
+			"topic":"Science"
+		},
+		{
+			"name":"Fractions",
+			"preview":"Fractions/Preview/Preview_video_Fraction_320",
+			"topic":"Math"
+		},
+		{
+			"name":"Perimeter, Area and Volume",
+			"preview":"Perimeter_Area_Volume/Preview/Preview_video_320",
+			"topic":"Math"
+		}
+	]
+}

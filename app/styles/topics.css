@@ -1,0 +1,32 @@
+.topic-container {
+	width:200px;
+	height:400px;
+	border:2px solid black;
+	border-radius: 20px;
+	display:inline-block;
+	margin:10px;
+	background-color: white;
+	vertical-align: top;
+}
+
+.topic-bg {
+	background-color: lightgrey;
+}
+
+.grey-bg {
+	background-color: grey;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+.lecture-holder {
+	border:1px solid black;
+	width:180px;
+	border-radius:5px;
+	margin-bottom:5px;
+	cursor: pointer;
+}
+
