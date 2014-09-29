@@ -54,3 +54,39 @@
 		</div>
 	</div>	
 </div>
+
+<script>
+$(document).ready(function() {
+	// var left_btn = $('#left-btn');
+	// var terms_cont = $('#terms-panel');
+
+	// console.log('Button position: ' + JSON.stringify(left_btn.offset()));
+	// console.log('Button Top: ' + left_btn.offset().top);
+	// console.log('Button Height: ' + left_btn.outerHeight());
+
+	// console.log('TermC: ' + terms_cont.outerHeight());
+
+	$("#left-btn").css({"margin-top":60});
+	$("#right-btn").css({"margin-top":60});
+
+	$('#left-btn').click(function(event) {
+		event.preventDefault();
+		var currScroll = $('#terms-scroller').scrollLeft();
+		$('#terms-scroller').animate({
+	        scrollLeft: currScroll - 205
+	    }, 250);
+	});
+		
+	$('#right-btn').click(function(event) {
+		//console.log('Scrolling...');
+		// $('#terms-subcontainer').scrollLeft(100);
+		event.preventDefault();
+		var currScroll = $('#terms-scroller').scrollLeft();
+		$('#terms-scroller').animate({
+	            scrollLeft: currScroll + 205
+	    }, 250);
+			
+	});
+})
+
+</script>

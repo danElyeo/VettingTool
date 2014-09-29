@@ -10,7 +10,6 @@
 
 		//console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
 		$scope.lectureInfo = LectureInfo.data;
-
 	}
 
 	angular.module('vettingToolApp')

@@ -24,8 +24,9 @@
 		$scope.format = 'video/webm';
 		$scope.ext = '.webm';
 
-		$scope.setEnglish = function() {
-			console.log('Setting english option: ' + $scope.showEnglish);
+		$scope.setEnglish = function(showEnglish) {
+			$scope.showEnglish = showEnglish;
+			console.log('Setting english option: ' + showEnglish);
 		};
 
 		$scope.detectIfSafari = function() {

@@ -20,8 +20,9 @@
 	/*float:left;
 	clear:left;*/
 	display:inline-block;
-	border:1px solid black;
+	/*border:1px solid black;*/
 	margin-right:5px;
+	vertical-align: top;
 }
 
 #terms-container {
@@ -44,7 +45,8 @@
 	clear:right;*/
 	margin-left: 5px;
 	display:inline-block;
-	border:1px solid black;
+	/*border:1px solid black;*/
+	vertical-align: top;
 }
 
 .term-holder {

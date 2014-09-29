@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/topics.css">
     <link rel="stylesheet" href="styles/lecture.css">
+
+    
     <!-- endbuild -->
   </head>
   <body ng-app="vettingToolApp" ng-controller="MainCtrl">
@@ -31,11 +33,20 @@
           <li><a ng-href="#">Contact</a></li>
         </ul>
         <h3 class="text-muted">ASL Vetting Tool</h3>
-        <div id="options">
+        <!-- <div id="options">
           <p class="text-center">OPTIONS</p>
           <input type="checkbox" id="cb_showEnglish" ng-model="showEnglish" ng-change="setEnglish()"> 
           <label for="cb_showEnglish"> Show English</label>
-        </div>
+        </div> -->
+        <accordion>
+          <accordion-group is-open="status.open">
+            <accordion-heading>
+            Settings <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </accordion-heading>
+            <input type="checkbox" id="cb_showEnglish" ng-model="showEnglish" ng-change="setEnglish(showEnglish)"> 
+            <label for="cb_showEnglish"> Show English</label>
+          </accordion-group>
+        </accordion>
       </div>
 
       <div class="main-content">
@@ -76,6 +87,7 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
