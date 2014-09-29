@@ -34,7 +34,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    /*max-width: 730px;*/
   }
 }
 .container-narrow > hr {
@@ -81,3 +81,11 @@ body {
 div.main-content {
   min-height: 500px;
 }
+
+#options {
+  border:1px solid black;
+  padding:5px;
+  border-radius: 5px;
+  background-color: beige;
+}
+

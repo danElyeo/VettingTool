@@ -1,0 +1,75 @@
+#main-panel {
+	display:inline-block;
+	vertical-align: top;
+	padding:10px;
+	border:1px solid blue;
+}
+
+#terms-panel {
+	position:relative;
+	padding:5px;
+	border:1px solid black;
+}
+
+#terms-panel a {
+	text-decoration: none;
+}
+
+#left-btn {
+	padding:5px;
+	/*float:left;
+	clear:left;*/
+	display:inline-block;
+	border:1px solid black;
+	margin-right:5px;
+}
+
+#terms-container {
+	width:500px;
+	/*float:left;*/
+	display:inline-block;
+	text-align:center;
+	padding:5px;
+	border:1px solid purple;
+}
+
+#terms-scroller {
+	overflow:auto;
+	white-space:nowrap;
+}
+
+#right-btn {
+	padding:5px;
+	/*float:left;
+	clear:right;*/
+	margin-left: 5px;
+	display:inline-block;
+	border:1px solid black;
+}
+
+.term-holder {
+	display:inline-block;
+	border:1px solid black;
+	margin:5px;
+	background-color: white;
+}
+
+#video-panel {
+	border:1px solid black;
+	padding:5px;
+}
+
+#side-panel {
+	display:inline-block;
+	border:1px solid red;
+	padding:5px;
+}
+
+.option-btn {
+	padding:5px;
+	border:1px solid black;
+	border-radius:5px;
+	margin-top:5px;
+	background-color: white;
+}
+

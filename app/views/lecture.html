@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row text-center topic-bg">
+		<div class="col-md-12">
+			<div id="main-panel"> <!-- contains terms and video player -->
+				<div id="terms-panel">
+					<div id="left-btn">
+						<a href="#left">&lt;</a>
+					</div>
+					<div id="terms-container">
+						<strong>TERMS</strong>
+						<div id="terms-scroller">
+							<div class="term-holder" ng-repeat="term in lectureInfo.terms">
+								<p ng-show="showEnglish">{{term.name}}</p>
+								<sign-video width="150px" path="{{term.sign_video + ext}}" type="{{format}}">
+								</sign-video>
+							</div>
+						</div> <!-- end scroller -->
+					</div> <!-- end container -->
+					<div id="right-btn">
+						<a href="#right">&gt;</a>
+					</div>
+				</div> <!-- end terms panel -->
+				<div id="video-panel">
+					<video-player path="{{lectureInfo.lecture_path + ext}}" type="{{format}}" width="500px"></video-player>
+				</div>
+			</div>
+			<div id="side-panel" class="text-center"> <!-- contains options -->
+				<strong>OPTIONS</strong>
+				<div id="lecture-btn" class="option-btn">
+					<div ng-show="showEnglish">Lecture
+					</div>
+					<sign-video localpath="video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+					</sign-video>
+				</div>
+				<div id="definition-btn" class="option-btn">
+					<div ng-show="showEnglish">Definition
+					</div>
+					<sign-video localpath="video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+					</sign-video>
+				</div>
+				<div id="example-btn" class="option-btn">
+					<div ng-show="showEnglish">Example
+					</div>
+					<sign-video localpath="video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+					</sign-video>
+				</div>
+				<div id="vet-btn" class="option-btn">
+					<div ng-show="showEnglish">Vet
+					</div>
+					<sign-video localpath="video_labels/VET_label_FF_320_DD{{ext}}" type="{{format}}" width="150px">
+					</sign-video>
+				</div>
+			<div>
+		</div>
+	</div>	
+</div>

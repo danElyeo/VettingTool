@@ -27,10 +27,22 @@ angular
         controller: 'TopicsCtrl',
         controllerAs: 'topic',
         resolve: {
-          LectureData: function(LectureAPI) {
-            return LectureAPI.getLectureData().success(function(data) {
+          AssignedLectures: function(LectureAPI) {
+            return LectureAPI.getAssignedLectures().success(function(data) {
               console.log('Resolved: Get Lecture Data...');
-              return data.lectures;
+              return data;
+            });
+          }
+        }
+      })
+      .when('/lecture/:lectureId', {
+        templateUrl: 'views/lecture.html',
+        controller: 'LectureCtrl',
+        resolve: {
+          LectureInfo: function(LectureAPI, $route) {
+            return LectureAPI.getLectureInfo($route.current.params.lectureId).success(function(data) {
+              console.log('Resolved: Get Lecture Info');
+              return data;
             });
           }
         }
