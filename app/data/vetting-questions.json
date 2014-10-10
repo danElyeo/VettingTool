@@ -1,0 +1,40 @@
+{
+	"questions": 
+	[
+		{
+			"type":"likert",
+			"question":"I feel that this is an appropriate ASL sign.",
+			"video_path":"videos/vetting_questions/vetting_a_320"
+		},
+		{
+			"type":"likert",
+			"question":"I feel that this sign makes sense in THIS LECTURE.",
+			"video_path":"videos/vetting_questions/vetting_b_320"
+		},
+		{
+			"type":"likert",
+			"question":"I feel that this sign is conceptually APPROPRIATE.",
+			"video_path":"videos/vetting_questions/vetting_c_320"
+		},
+		{
+			"type":"likert",
+			"question":"I would use this sign WITH KIDS IN A SCHOOL SETTING.",
+			"video_path":"videos/vetting_questions/vetting_d_320"
+		},
+		{
+			"type":"likert",
+			"question":"I would use this sign WITH OTHER ADULTS in ACADEMIC SETTINGS.",
+			"video_path":"videos/vetting_questions/vetting_e_320"
+		},
+		{
+			"type":"binary",
+			"question":"I have used this sign before IN THIS CONTEXT.",
+			"video_path":"videos/vetting_questions/vetting_f_320"
+		},
+		{
+			"type":"binary",
+			"question":"I have a different sign I prefer to use instead.",
+			"video_path":"videos/vetting_questions/vetting_g_320"
+		}
+	]
+}

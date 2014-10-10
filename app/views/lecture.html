@@ -1,4 +1,4 @@
-<div class="container">
+<section>
 	<div class="row text-center topic-bg">
 		<div class="col-md-12">
 			<div id="main-panel"> <!-- contains terms and video player -->
@@ -29,31 +29,31 @@
 				<div id="lecture-btn" class="option-btn">
 					<div ng-show="showEnglish">Lecture
 					</div>
-					<sign-video localpath="video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+					<sign-video localpath="videos/video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
 					</sign-video>
 				</div>
 				<div id="definition-btn" class="option-btn">
 					<div ng-show="showEnglish">Definition
 					</div>
-					<sign-video localpath="video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+					<sign-video localpath="videos/video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px">
 					</sign-video>
 				</div>
 				<div id="example-btn" class="option-btn">
 					<div ng-show="showEnglish">Example
 					</div>
-					<sign-video localpath="video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+					<sign-video localpath="videos/video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
 					</sign-video>
 				</div>
 				<div id="vet-btn" class="option-btn">
 					<div ng-show="showEnglish">Vet
 					</div>
-					<sign-video localpath="video_labels/VET_label_FF_320_DD{{ext}}" type="{{format}}" width="150px">
+					<sign-video localpath="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px" ng-click="openVettingModal('lg')">
 					</sign-video>
 				</div>
 			<div>
 		</div>
 	</div>	
-</div>
+</section>
 
 <script>
 $(document).ready(function() {

@@ -2,6 +2,8 @@
 	"lecture_path":"CondExperiment/Lecture/CondExperiment_lecture_480",
 	"terms": 
 	[{
+
+		"term_id":1,
 		"name":"Analyze",
 		"time_start":"2.44",
 		"time_end":"2.56",
@@ -10,28 +12,32 @@
 		"def_video":"CondExperiment/Terms/Analyze/Analyze_Def_FF_320_BS_S"
 	},
 	{
+		"term_id":2,
 		"name":"Beaker",
-		"timestamp":"",
 		"sign_video":"CondExperiment/Terms/Beaker/Beaker_FF_320_CB_S",
 		"def_video":"CondExperiment/Terms/Beaker/Beaker_Def_FF_320_CB_S"
 	},
 	{
+		"term_id":3,
 		"name":"Calculator",
-		"timestamp":"",
 		"sign_video":"CondExperiment/Terms/Calculator/Calculator_FF_320_CB_S",
 		"ex_video":"CondExperiment/Terms/Calculator/Calculator_Ex_320_FF_CB_S",
 		"def_video":"CondExperiment/Terms/Calculator/Calculator_Def_320_FF_CB_S"
 	},
 	{
+		"term_id":4,
 		"name":"Control Group",
-		"timestamp":"",
+		"time_start":"4.43",
+		"time_end":"4.55",		
 		"sign_video":"CondExperiment/Terms/Control+Group/ControlGroup_FF_320_CB_S",
 		"ex_video":"CondExperiment/Terms/Control+Group/ControlGroup_Ex_320_FF_CB_S",
 		"def_video":"CondExperiment/Terms/Control+Group/ControlGroup_Def_FF_320_CB_S"
 	},
 	{
+		"term_id":5,
 		"name":"Research",
-		"timestamp":"",
+		"time_start":"2.02",
+		"time_end":"2.14",
 		"sign_video":"CondExperiment/Terms/Research/Research_FF_320_BS_S",
 		"ex_video":"CondExperiment/Terms/Research/Research_Ex_320_FF_BS_S",
 		"def_video":"CondExperiment/Terms/Research/Research_Def_320_FF_BS_S"

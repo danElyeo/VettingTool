@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h3 class="modal-title">Question ({{currIndex+1}}/{{questionCount}})</h3>
+    <sign-video class="center-block" localpath="{{currQuestion.video_path + ext}}" type="{{format}}"></sign-video>
+</div>
+<div class="modal-body text-center">
+    <!-- <ul>
+        <li ng-repeat="item in items">
+            <a ng-click="selected.item = item">{{ item }}</a>
+        </li>
+    </ul> -->
+    <!-- Selected: <b>{{ selected.item }}</b> -->
+    <p ng-show="showEnglish">{{currQuestion.question}}</p>
+    
+    <likert-scale></likert-scale>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary pull-left" ng-click="goToPrev()">&lt;</button>
+    <button class="btn btn-success" ng-click="submit()" ng-show="vetting-completed">Submit</button>
+    <button class="btn btn-primary pull-right" ng-click="goToNext()">&gt;</button>
+</div>

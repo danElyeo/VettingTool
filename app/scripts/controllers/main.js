@@ -17,24 +17,24 @@
 //   });
 
 (function() {
-	function MainCtrl($scope) {
-		$scope.username = 'deafine_user';
-		$scope.showEnglish = false;
-		$scope.usingSafari = false;
-		$scope.format = 'video/webm';
-		$scope.ext = '.webm';
+	function MainCtrl($scope, $rootScope) {
+		$rootScope.username = 'deafine_user';
+		$rootScope.showEnglish = false;
+		$rootScope.usingSafari = false;
+		$rootScope.format = 'video/webm';
+		$rootScope.ext = '.webm';
 
 		$scope.setEnglish = function(showEnglish) {
-			$scope.showEnglish = showEnglish;
+			$rootScope.showEnglish = showEnglish;
 			console.log('Setting english option: ' + showEnglish);
 		};
 
 		$scope.detectIfSafari = function() {
 			var userAgent = navigator.userAgent;
 			if(userAgent.indexOf('Safari') !== -1) {
-				$scope.usingSafari = true;
-				$scope.ext = '.mp4';
-				$scope.format = 'video/mp4';
+				$rootScope.usingSafari = true;
+				$rootScope.ext = '.mp4';
+				$rootScope.format = 'video/mp4';
 			}
 		};
 

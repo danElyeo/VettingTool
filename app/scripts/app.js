@@ -14,7 +14,8 @@ angular
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-loading-bar'
   ])
   .config(function ($routeProvider) {
     $routeProvider

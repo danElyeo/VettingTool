@@ -9,14 +9,13 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/topics.css">
     <link rel="stylesheet" href="styles/lecture.css">
-
-    
     <!-- endbuild -->
   </head>
   <body ng-app="vettingToolApp" ng-controller="MainCtrl">
@@ -88,6 +87,7 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -96,14 +96,16 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/topics.js"></script>
         <script src="scripts/controllers/lecture.js"></script>
+        <script src="scripts/controllers/vetting-modal.js"></script>
 
         <!-- ANGULAR DIRECTIVES -->
         <script src="scripts/directives/sign-video.js"></script>
         <script src="scripts/directives/video-player.js"></script>
+        <script src="scripts/directives/likert-scale.js"></script>
 
         <!-- ANGULAR SERVICES-->
         <script src="scripts/services/lectureAPI.js"></script>
         <script src="scripts/services/topicAPI.js"></script>
-        <!-- endbuild -->
+        <script src="scripts/services/vettingAPI.js"></script>        <!-- endbuild -->
 </body>
 </html>

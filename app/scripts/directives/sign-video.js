@@ -23,6 +23,11 @@
 					//console.log('Path is remote: ' + $element.attr('src'));
 				}
 
+				$scope.$watch('localpath', function() {
+					//console.log('Path changed!');
+					$element.attr('src', $attr.localpath);
+				});
+
 				// Turn off volumn by default
 				$element[0].volume = 0;
 				

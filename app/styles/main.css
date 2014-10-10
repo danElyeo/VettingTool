@@ -90,3 +90,8 @@ div.main-content {
   background-color: beige;
 }*/
 
+.center-table
+{ 
+  margin: 0 auto !important;
+  float: none !important;
+}
