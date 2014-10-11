@@ -5,23 +5,18 @@
 		return {
 			restrict: 'E',
 			scope: {
+				type:'@'
 			},
 			replace: true,
 			//template:'<video controls></video>',
 			templateUrl:'scripts/directives/likert-scale.tpl.html',
-			link: function() {
-				//$element.attr('type', $attr.type);
-
-				// if($attr.localpath){
-				// 	$element.attr('src', $attr.localpath);
-				// }
-				// else {
-				// 	$element.attr('src', FILE_HOST + $attr.path);
-				// }
-
-				// Turn off volumn by default
-				//$element[0].volume = 0;
+			link: function($scope, $element) {
+				
 				console.log('Initializing likert scale');
+				console.log('Checkbox: ' + $element[0].children[1].children[0]);
+
+				// How to get the question type?
+				//console.log('Parent: ' + $scope.parent);
 			}	
 		};	
 	}

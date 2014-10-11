@@ -2,16 +2,45 @@
 
 (function() {
 
-	function LectureCtrl($scope, $routeParams, $log, $modal, LectureInfo) {
+	function LectureCtrl($scope, $routeParams, $log, $modal, LectureInfo, TermAPI) {
 		console.log('Initializing Lecture Controller');
+
+		// Variables
+		$scope.lectureInfo = LectureInfo.data;
+		$scope.activeVideoFile = null;
 
 		$scope.lectureId = $routeParams.lectureId;
 		console.log('LectureId: ' + $scope.lectureId);
 
-		//console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
-		$scope.lectureInfo = LectureInfo.data;
+		// console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
+		//$scope.lectureInfo = LectureInfo.data;
+		$scope.activeVideoFile = $scope.lectureInfo.lecture_path;
 
-		//$scope.items = ['item1', 'item2', 'item3'];
+		$scope.setActiveTerm = function(term) {
+			TermAPI.setActiveTerm(term);
+
+			// Once a term has been selected, video player shows the sign.
+			$scope.setSignVideo();
+		};
+
+		$scope.setSignVideo = function() {
+			$scope.activeVideoFile = TermAPI.activeTerm.sign_video;
+		};
+
+		// Set video player to the current term's definition video
+		$scope.setDefVideo = function() {
+			$scope.activeVideoFile = TermAPI.activeTerm.def_video;		
+		};
+
+		// Set video player to the current term's example video
+		$scope.setExVideo = function() {
+			$scope.activeVideoFile = TermAPI.activeTerm.ex_video;
+		};
+
+		// Opens up modal window to play lecture video
+		$scope.setLectureVideo = function() {
+
+		};
 
 		$scope.openVettingModal = function(size) {
 			var modalInstance = $modal.open({

@@ -5,7 +5,7 @@
 		return {
 			restrict: 'E',
 			scope: {
-				path:'@path',
+				path:'@',
 				localpath:'@'
 			},
 			replace: true,
@@ -19,10 +19,26 @@
 				}
 				else {
 					$element.attr('src', FILE_HOST + $attr.path);
+					console.log('Path: ' + $element.attr('path'));
 				}
 
 				// Turn off volumn by default
 				$element[0].volume = 0;
+
+				// Path is a custom attribute, so we need to change the 
+				// src manually.
+				$scope.$watch('path', function() {
+					//console.log('Path is changed!' + $scope.path);
+					// Update the player's new source file
+					$element.attr('src', FILE_HOST + $attr.path);
+				});
+
+				// When video has played till the end, reset the video automatically
+				$element.on('ended', function() {
+					//console.log('Vided ended event.');
+					// Reset the current video time
+					$element[0].currentTime = 0;			
+				});
 			}	
 		};	
 	}

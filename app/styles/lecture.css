@@ -60,6 +60,7 @@
 	border:1px solid black;
 	margin:5px;
 	background-color: white;
+	cursor: pointer;
 }
 
 #video-panel {
@@ -113,5 +114,10 @@
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
     filter: flipv; /*IE*/
+}
+
+#binary table tr td {
+	padding-left:20px;
+	padding-right:20px;
 }
 

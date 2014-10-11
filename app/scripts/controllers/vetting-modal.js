@@ -10,7 +10,7 @@
 		// };
 		//console.log('Parent scope: ' + JSON.stringify($rootScope));
 
-		$scope.answers = [7];
+		$scope.answers = [7]; // array to save the answers
 		//console.log('Question Items: ' + QuestionItems.data);
 		$scope.questions = QuestionItems.data.questions;
 		$scope.questionCount = $scope.questions.length;
@@ -50,7 +50,11 @@
 
 		function updateQuestion() {
 			//console.log('Current Question no: ' + ($scope.currIndex+1));
-			$scope.currQuestion = $scope.questions[$scope.currIndex];
+
+			// Before updating, be sure to save the current choices seleected, if any.
+			//document.getElementbyId()
+
+			//$scope.currQuestion = $scope.questions[$scope.currIndex];
 			
 			// Check for answers and display the choices accordingly
 			// If vetter did not answer before, clear all choices
