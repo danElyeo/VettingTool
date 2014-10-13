@@ -16,9 +16,10 @@
 		$scope.lectureId = $routeParams.lectureId;
 		console.log('LectureId: ' + $scope.lectureId);
 
-		//var modalInstance;
-
 		$scope.showModal = false;
+
+		$scope.lectureViewed = false;
+		$scope.termSelected = false;
 
 		// console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
 		//$scope.lectureInfo = LectureInfo.data;
@@ -26,6 +27,7 @@
 
 		$scope.setActiveTerm = function(term) {
 			TermAPI.setActiveTerm(term);
+			$scope.termSelected = true;
 
 			// Once a term has been selected, video player shows the sign.
 			$scope.setSignVideo();
@@ -79,6 +81,12 @@
 				$log.info('Modal dismissed at: ' + new Date());
 			});
 		};
+
+		$scope.$on('LectureEndedEvent', function() { // called by video-player
+			//console.log('Set lectureViewed to true');
+			$scope.lectureViewed = true;
+			$scope.$apply();
+		});
 
 	}];
 

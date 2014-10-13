@@ -16,11 +16,11 @@
 				$element.attr('type', $attr.type);
 
 				if($attr.localpath){
-					$element.attr('src', $attr.localpath);
+					$element.attr('src', $attr.path);
 				}
 				else {
 					$element.attr('src', FILE_HOST + $attr.path);
-					console.log('Path: ' + $element.attr('path'));
+					//console.log('Path: ' + $element.attr('path'));
 				}
 
 				// Turn off volumn by default

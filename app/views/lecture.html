@@ -1,7 +1,7 @@
 <section>
 	<div class="row text-center topic-bg">
 		<div class="col-md-12">
-			<div id="main-panel"> <!-- contains terms and video player -->
+			<div id="main-panel" ng-show="lectureViewed"> <!-- contains terms and video player -->
 				<div id="terms-panel">
 					<div id="left-btn">
 						<a href="#left">&lt;</a>
@@ -26,8 +26,6 @@
 					<video-player path="{{activeVideoFile}}{{ext}}" type="{{format}}" width="500px"></video-player>
 				</div>
 
-				<video-modal path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}"></video-modal>
-
 			</div>
 			<div id="side-panel" class="text-center"> <!-- contains options -->
 				<div id="lecture-btn-container">
@@ -37,7 +35,7 @@
 						</sign-video>
 					</sign-button>
 				</div>
-				<div id="options">
+				<div id="options" ng-show="termSelected">
 					<strong>OPTIONS</strong>
 					
 					<sign-button id="sign-btn" class="btn btn-default option-btn" ng-click="setSignVideo()" ng-transclude>
@@ -69,7 +67,9 @@
 						</sign-video>
 					</sign-button>
 				</div> <!-- close div#options -->
-			<div>
+			<div> <!-- close main-panel -->
+
+			<video-modal path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}" lectureViewed="lectureViewed"></video-modal>
 		</div>
 	</div>	
 </section>

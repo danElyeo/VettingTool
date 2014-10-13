@@ -17,7 +17,7 @@
 			//templateUrl:'views/templates/sign-button.tpl.html',
 			link: function($scope, $element) {
 				//$element.attr('type', $attr.type);
-				console.log('Element: ' + $element[0]);
+				//console.log('Element: ' + $element[0]);
 				
 				//Play video when mouse over
 				$element.on('mouseenter', function() {
@@ -29,10 +29,6 @@
 					$element[0].children[1].pause();
 					$element[0].children[1].currentTime = 0;
 				});	
-
-				$scope.mouseOver = function() {
-					console.log('Mousing over');
-				};
 			}	
 		};	
 	}];

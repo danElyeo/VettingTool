@@ -11,11 +11,11 @@
 						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
 						</sign-video>
 					</div> -->
-					<button class="btn btn-default center-block lecture-holder">
+					<sign-button class="btn btn-default center-block lecture-holder" ng-transclude>
 						<p ng-show="showEnglish">{{lecture.name}}</p>
 						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
 						</sign-video>
-					</button>
+					</sign-button>
 				</a>
 			</div>
 		</div>
