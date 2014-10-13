@@ -10,9 +10,11 @@
 						<strong>TERMS</strong>
 						<div id="terms-scroller">
 							<div class="term-holder" ng-repeat="term in lectureInfo.terms" ng-click="setActiveTerm(term)">
-								<p ng-show="showEnglish">{{term.name}}</p>
-								<sign-video width="150px" path="{{term.sign_video + ext}}" type="{{format}}">
-								</sign-video>
+								<sign-button class="btn btn-default" ng-transclude>
+									<p ng-show="showEnglish">{{term.name}}</p>
+									<sign-video width="150px" path="{{term.sign_video + ext}}" type="{{format}}">
+									</sign-video>
+								</sign-button>
 							</div>
 						</div> <!-- end scroller -->
 					</div> <!-- end container -->
@@ -29,43 +31,43 @@
 			</div>
 			<div id="side-panel" class="text-center"> <!-- contains options -->
 				<div id="lecture-btn-container">
-					<button class="btn btn-success" ng-click="openLectureVideo()">
+					<sign-button class="btn btn-success" ng-click="openLectureVideo()" ng-transclude>
 						<div ng-show="showEnglish">Lecture</div>
-						<sign-video localpath="videos/video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						<sign-video path="videos/video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" localpath="yes" width="150px">
 						</sign-video>
-					</button>
+					</sign-button>
 				</div>
 				<div id="options">
 					<strong>OPTIONS</strong>
 					
-					<button id="sign-btn" class="btn btn-default option-btn" ng-click="setSignVideo()">
+					<sign-button id="sign-btn" class="btn btn-default option-btn" ng-click="setSignVideo()" ng-transclude>
 						<div ng-show="showEnglish">
 						Sign
 						</div>
-						<sign-video localpath="videos/video_labels/SIGN_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						<sign-video path="videos/video_labels/SIGN_label_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes">
 						</sign-video>
-					</button>
+					</sign-button>
 
-					<button id="definition-btn" class="btn btn-default option-btn" ng-click="setDefVideo()">
+					<sign-button id="definition-btn" class="btn btn-default option-btn" ng-click="setDefVideo()" ng-transclude>
 						<div ng-show="showEnglish">Definition
 						</div>
-						<sign-video localpath="videos/video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						<sign-video path="videos/video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes">
 						</sign-video>
-					</button>
+					</sign-button>
 
-					<button id="example-btn" class="btn btn-default option-btn" ng-click="setExVideo()">
+					<sign-button id="example-btn" class="btn btn-default option-btn" ng-click="setExVideo()" ng-transclude>
 						<div ng-show="showEnglish">Example
 						</div>
-						<sign-video localpath="videos/video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						<sign-video path="videos/video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes">
 						</sign-video>
-					</button>
+					</sign-button>
 
-					<button id="vet-btn" class="btn btn-default option-btn" ng-click="openVettingModal('lg')">
+					<sign-button id="vet-btn" class="btn btn-default option-btn" ng-click="openVettingModal('lg')" ng-transclude>
 						<div ng-show="showEnglish">Vet
 						</div>
-						<sign-video localpath="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px">
+						<sign-video path="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px" localpath="yes">
 						</sign-video>
-					</button>
+					</sign-button>
 				</div> <!-- close div#options -->
 			<div>
 		</div>

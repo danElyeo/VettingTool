@@ -57,10 +57,10 @@
 
 .term-holder {
 	display:inline-block;
-	border:1px solid black;
+	/*border:1px solid black;*/
 	margin:5px;
-	background-color: white;
-	cursor: pointer;
+	/*background-color: white;*/
+	/*cursor: pointer;*/
 }
 
 #video-panel {
