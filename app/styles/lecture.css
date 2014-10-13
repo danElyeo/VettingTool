@@ -72,22 +72,43 @@
 #side-panel {
 	display:inline-block;
 	/*border:1px solid red;*/
-	padding:5px;
-	-moz-box-shadow: 0 0 5px #888;
+	/*padding:5px;*/
+	/*-moz-box-shadow: 0 0 5px #888;
 	-webkit-box-shadow: 0 0 5px#888;
-	box-shadow: 0 0 5px #888;
+	box-shadow: 0 0 5px #888;*/
 	background-color: white;
 	/*border-radius:5px;*/
 	margin-left:5px;
 }
 
-.option-btn {
+#options {
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	margin-top:10px;
+	padding:10px;
+}
+
+#lecture-btn-container{
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	padding:10px;
+}
+
+/*.option-btn {
 	padding:5px;
 	border:1px solid black;
 	border-radius:5px;
 	margin-top:5px;
 	background-color: white;
 	cursor:pointer;
+	display:block;
+}*/
+
+.option-btn {
+	display:block !important;
+	margin-top:5px;
 }
 
 #likert table tr td {

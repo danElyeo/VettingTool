@@ -23,40 +23,50 @@
 				<div id="video-panel">
 					<video-player path="{{activeVideoFile}}{{ext}}" type="{{format}}" width="500px"></video-player>
 				</div>
+
+				<video-modal path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}"></video-modal>
+
 			</div>
 			<div id="side-panel" class="text-center"> <!-- contains options -->
-				<strong>OPTIONS</strong>
-				<div id="lecture-btn" class="option-btn">
-					<div ng-show="showEnglish">Lecture
-					</div>
-					<sign-video localpath="videos/video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
-					</sign-video>
+				<div id="lecture-btn-container">
+					<button class="btn btn-success" ng-click="openLectureVideo()">
+						<div ng-show="showEnglish">Lecture</div>
+						<sign-video localpath="videos/video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						</sign-video>
+					</button>
 				</div>
-				<div id="sign-btn" class="option-btn" ng-click="setSignVideo()">
-					<div ng-show="showEnglish">
-					Sign
-					</div>
-					<sign-video localpath="videos/video_labels/SIGN_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
-					</sign-video>
-				</div>
-				<div id="definition-btn" class="option-btn" ng-click="setDefVideo()">
-					<div ng-show="showEnglish">Definition
-					</div>
-					<sign-video localpath="videos/video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px">
-					</sign-video>
-				</div>
-				<div id="example-btn" class="option-btn" ng-click="setExVideo()">
-					<div ng-show="showEnglish">Example
-					</div>
-					<sign-video localpath="videos/video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
-					</sign-video>
-				</div>
-				<div id="vet-btn" class="option-btn" ng-click="openVettingModal('lg')">
-					<div ng-show="showEnglish">Vet
-					</div>
-					<sign-video localpath="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px">
-					</sign-video>
-				</div>
+				<div id="options">
+					<strong>OPTIONS</strong>
+					
+					<button id="sign-btn" class="btn btn-default option-btn" ng-click="setSignVideo()">
+						<div ng-show="showEnglish">
+						Sign
+						</div>
+						<sign-video localpath="videos/video_labels/SIGN_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						</sign-video>
+					</button>
+
+					<button id="definition-btn" class="btn btn-default option-btn" ng-click="setDefVideo()">
+						<div ng-show="showEnglish">Definition
+						</div>
+						<sign-video localpath="videos/video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						</sign-video>
+					</button>
+
+					<button id="example-btn" class="btn btn-default option-btn" ng-click="setExVideo()">
+						<div ng-show="showEnglish">Example
+						</div>
+						<sign-video localpath="videos/video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px">
+						</sign-video>
+					</button>
+
+					<button id="vet-btn" class="btn btn-default option-btn" ng-click="openVettingModal('lg')">
+						<div ng-show="showEnglish">Vet
+						</div>
+						<sign-video localpath="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px">
+						</sign-video>
+					</button>
+				</div> <!-- close div#options -->
 			<div>
 		</div>
 	</div>	

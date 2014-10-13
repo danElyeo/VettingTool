@@ -44,6 +44,8 @@ angular
           LectureInfo: ['$route', 'LectureAPI', function($route, LectureAPI) {
             return LectureAPI.getLectureInfo($route.current.params.lectureId).success(function(data) {
               console.log('Resolved: Get Lecture Info');
+              LectureAPI.currentLectureFile = data.lecture_path;
+              console.log('Resolved lecture file: ' + LectureAPI.currentLectureFile);
               return data;
             });
           }]

@@ -2,20 +2,27 @@
 
 (function() {
 
-	var LectureCtrl = ['$scope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI',
-	function($scope, $routeParams, $log, $modal, LectureInfo, TermAPI) {
+	var LectureCtrl = ['$scope', '$routeParams', '$log', 'LectureInfo', 'TermAPI', 'LectureAPI',
+	function($scope, $routeParams, $log, LectureInfo, TermAPI, LectureAPI) {
 		console.log('Initializing Lecture Controller');
 
 		// Variables
+		console.log('Lecture file: ' + LectureInfo.data.lecture_path);
 		$scope.lectureInfo = LectureInfo.data;
+		LectureAPI.currentLectureFile = LectureInfo.data.lecture_path;
+
 		$scope.activeVideoFile = null;
 
 		$scope.lectureId = $routeParams.lectureId;
 		console.log('LectureId: ' + $scope.lectureId);
 
+		//var modalInstance;
+
+		$scope.showModal = false;
+
 		// console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
 		//$scope.lectureInfo = LectureInfo.data;
-		$scope.activeVideoFile = $scope.lectureInfo.lecture_path;
+		//$scope.activeVideoFile = $scope.lectureInfo.lecture_path;
 
 		$scope.setActiveTerm = function(term) {
 			TermAPI.setActiveTerm(term);
@@ -39,30 +46,52 @@
 		};
 
 		// Opens up modal window to play lecture video
-		$scope.setLectureVideo = function() {
-
+		$scope.openLectureVideo = function() {
+			//console.log('Opening lecture video');
+			$scope.$broadcast('openLectureVideo');
 		};
 
-		$scope.openVettingModal = function(size) {
-			var modalInstance = $modal.open({
-				templateUrl: 'views/vetting-modal.html',
-				controller: 'VettingModalCtrl',
-				size: size,
-				resolve: {
-					QuestionItems: ['$http', function ($http) {
-				  		return $http.get('data/vetting-questions.json').success(function(data) {
-				  			return data;
-				  		});
-					}]
-				}
-			});
+		// $scope.openLectureModal = function(size) {
+		// 	var modalInstance = $modal.open({
+		// 		templateUrl: 'views/lecture-modal.html',
+		// 		controller: 'LectureModalCtrl',
+		// 		size: size,
+		// 		backdrop: 'static', // prevents user from clicking outside to close the modal
+		// 		keyboard: false // prevents user from clicking esc
 
-			modalInstance.result.then(function () {//selectedItem) {
-				//$scope.selected = selectedItem;
-			}, function () {
-				$log.info('Modal dismissed at: ' + new Date());
-			});
-		};
+		// 	});
+
+		// 	modalInstance.result.then(function () {//selectedItem) {
+		// 		//$scope.selected = selectedItem;
+		// 	}, function () {
+		// 		$log.info('Modal dismissed at: ' + new Date());
+		// 	});
+		// };
+
+		// $scope.openVettingModal = function(size) {
+		// 	var modalInstance = $modal.open({
+		// 		templateUrl: 'views/vetting-modal.html',
+		// 		controller: 'VettingModalCtrl',
+		// 		size: size,
+		// 		resolve: {
+		// 			QuestionItems: ['$http', function ($http) {
+		// 		  		return $http.get('data/vetting-questions.json').success(function(data) {
+		// 		  			return data;
+		// 		  		});
+		// 			}]
+		// 		}
+		// 	});
+
+		// 	modalInstance.result.then(function () {//selectedItem) {
+		// 		//$scope.selected = selectedItem;
+		// 	}, function () {
+		// 		$log.info('Modal dismissed at: ' + new Date());
+		// 	});
+		// };
+
+		//$scope.openLectureModal('lg');
+
+
 	}];
 
 

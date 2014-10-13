@@ -6,6 +6,8 @@
 
 		lectureAPI.lectures = [];
 
+		lectureAPI.currentLectureFile = '';
+
 		// Requests user assigned lectures from the backend
 		// Gives user_id, expects a list of lectures in return
 		lectureAPI.getAssignedLectures = function() {
