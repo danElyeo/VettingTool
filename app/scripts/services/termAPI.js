@@ -8,7 +8,7 @@
 
 		// Sets the current active term
 		termAPI.setActiveTerm = function(term) {
-			//console.log('Current Term: ' + JSON.stringify(term));
+			console.log('Current Term: ' + JSON.stringify(term));
 			termAPI.activeTerm = term;
 		};
 

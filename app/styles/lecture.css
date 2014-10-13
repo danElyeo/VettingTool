@@ -142,3 +142,9 @@
 	padding-right:20px;
 }
 
+#submit-answers-btn {
+	float:none;
+	margin-right:auto;
+	margin-left:auto;
+}
+

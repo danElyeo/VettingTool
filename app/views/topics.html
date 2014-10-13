@@ -6,11 +6,16 @@
 				<h3>{{topic}}</h3>
 				<!-- For each lecture with this topic, show the preview video -->
 				<a ng-repeat="lecture in lectures | filter: { topic:topic }" href="#/lecture/{{lecture.id}}" ng-click="selectLecture(lecture.id)">
-					<div class="lecture-holder center-block">
+					<!-- <div class="lecture-holder center-block">
 						<p ng-show="showEnglish">{{lecture.name}}</p>
 						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
 						</sign-video>
-					</div>
+					</div> -->
+					<button class="btn btn-default center-block lecture-holder">
+						<p ng-show="showEnglish">{{lecture.name}}</p>
+						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
+						</sign-video>
+					</button>
 				</a>
 			</div>
 		</div>

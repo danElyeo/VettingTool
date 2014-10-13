@@ -2,8 +2,8 @@
 
 (function() {
 
-	var LectureCtrl = ['$scope', '$routeParams', '$log', 'LectureInfo', 'TermAPI', 'LectureAPI',
-	function($scope, $routeParams, $log, LectureInfo, TermAPI, LectureAPI) {
+	var LectureCtrl = ['$scope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI', 'LectureAPI',
+	function($scope, $routeParams, $log, $modal, LectureInfo, TermAPI, LectureAPI) {
 		console.log('Initializing Lecture Controller');
 
 		// Variables
@@ -68,26 +68,35 @@
 		// 	});
 		// };
 
-		// $scope.openVettingModal = function(size) {
-		// 	var modalInstance = $modal.open({
-		// 		templateUrl: 'views/vetting-modal.html',
-		// 		controller: 'VettingModalCtrl',
-		// 		size: size,
-		// 		resolve: {
-		// 			QuestionItems: ['$http', function ($http) {
-		// 		  		return $http.get('data/vetting-questions.json').success(function(data) {
-		// 		  			return data;
-		// 		  		});
-		// 			}]
-		// 		}
-		// 	});
+		$scope.openVettingModal = function(size) {
+			var modalInstance = $modal.open({
+				templateUrl: 'views/vetting-modal.html',
+				controller: 'VettingModalCtrl',
+				size: size,
+				resolve: {
+					QuestionItems: ['$http', function ($http) {
+				  		return $http.get('data/vetting-questions.json').success(function(data) {
+				  			return data;
+				  		});
+					}]
+				}
+			});
 
-		// 	modalInstance.result.then(function () {//selectedItem) {
-		// 		//$scope.selected = selectedItem;
-		// 	}, function () {
-		// 		$log.info('Modal dismissed at: ' + new Date());
-		// 	});
-		// };
+			modalInstance.result.then(function (answers) {//selectedItem) {
+				$scope.term_answers = answers;
+				// Create JSON for answers and send to backend here.
+				var objToSend = {
+					'lectureId':$scope.lectureId,
+					'termId':TermAPI.activeTerm.term_id,
+					'answers':answers
+				};
+
+				console.log('Send to Backend: ' + JSON.stringify(objToSend));
+
+			}, function () {
+				$log.info('Modal dismissed at: ' + new Date());
+			});
+		};
 
 		//$scope.openLectureModal('lg');
 
