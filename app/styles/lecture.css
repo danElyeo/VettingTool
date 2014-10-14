@@ -1,6 +1,6 @@
 #main-panel {
 	display:inline-block;
-	vertical-align: top;
+	vertical-align: bottom;
 	padding:10px;
 	/*border:1px solid blue;*/
 	-moz-box-shadow: 0 0 5px #888;
@@ -14,7 +14,7 @@
 #terms-panel {
 	position:relative;
 	padding:5px;
-	border:1px solid black;
+	/*border:1px solid black;*/
 }
 
 #terms-panel a {
@@ -37,7 +37,8 @@
 	display:inline-block;
 	text-align:center;
 	padding:5px;
-	border:1px solid purple;
+	border:2px solid purple;
+	border-radius: 5px; 
 }
 
 #terms-scroller {
@@ -94,6 +95,7 @@
 	-webkit-box-shadow: 0 0 5px#888;
 	box-shadow: 0 0 5px #888;
 	padding:10px;
+	vertical-align: bottom;
 }
 
 /*.option-btn {
@@ -146,5 +148,44 @@
 	float:none;
 	margin-right:auto;
 	margin-left:auto;
+}
+
+#tabs {
+	display:inline-block;
+	/*border:1px solid red;*/
+}
+
+#panes {
+	display:inline-block;
+	width:500px;
+	height:500px;
+	/*position:relative;*/
+	/*vertical-align: middle;*/
+	/*border:1px solid green;*/
+	background-color: #eee;
+}
+
+#panes video {
+	/*position:relative;*/
+	margin-top:6em;
+}
+
+#panes p {
+	line-height:500px;
+}
+
+.box-container {
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	padding:10px;
+	margin:10px;
+	display:inline-block;
+	width:800px;
+	background-color: white;
+}
+
+.modal-dialog {
+	width:800px;
 }
 

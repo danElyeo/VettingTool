@@ -44,6 +44,7 @@
 				$element.on('ended', function() {
 					// Reset the current video time
 					$element[0].currentTime = 0;
+					$element[0].pause();
 
 					// If video is a lecture video, broadcast finish event
 					if($attr.lecture) {

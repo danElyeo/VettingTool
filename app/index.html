@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-vertical-tabs/bootstrap.vertical-tabs.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -27,9 +28,9 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/topics">Topics</a></li>
-          <li><a ng-href="#">Contact</a></li>
+          <li><a ng-href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+          <li><a ng-href="#/topics"><span class="glyphicon glyphicon-book"></a></li>
+          <!-- <li><a ng-href="#">Contact</a></li> -->
         </ul>
         <h3 class="text-muted">ASL Vetting Tool</h3>
         <!-- <div id="options">
@@ -42,8 +43,13 @@
             <accordion-heading>
             Settings <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
             </accordion-heading>
+            
             <input type="checkbox" id="cb_showEnglish" ng-model="showEnglish" ng-change="setEnglish(showEnglish)"> 
             <label for="cb_showEnglish"> Show English</label>
+
+            <input type="checkbox" id="cb_lectureViewed" ng-model="lectureViewed" ng-change="setLectureViewed(lectureViewed)"> 
+            <label for="cb_lectureViewed"> Lecture Viewed</label>
+          
           </accordion-group>
         </accordion>
       </div>

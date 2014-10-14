@@ -24,10 +24,16 @@
 		$rootScope.usingSafari = false;
 		$rootScope.format = 'video/webm';
 		$rootScope.ext = '.webm';
+		$rootScope.lectureViewed = false;
 
 		$scope.setEnglish = function(showEnglish) {
 			$rootScope.showEnglish = showEnglish;
 			console.log('Setting english option: ' + showEnglish);
+		};
+
+		$scope.setLectureViewed = function(lectureViewed) {
+			$rootScope.lectureViewed = lectureViewed;
+			console.log('Setting lecture viewed option: ' + lectureViewed);
 		};
 
 		$scope.detectIfSafari = function() {

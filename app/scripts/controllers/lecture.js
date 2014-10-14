@@ -2,8 +2,8 @@
 
 (function() {
 
-	var LectureCtrl = ['$scope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI', 'LectureAPI',
-	function($scope, $routeParams, $log, $modal, LectureInfo, TermAPI, LectureAPI) {
+	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI', 'LectureAPI',
+	function($scope, $rootScope, $routeParams, $log, $modal, LectureInfo, TermAPI, LectureAPI) {
 		console.log('Initializing Lecture Controller');
 
 		// Variables
@@ -18,8 +18,16 @@
 
 		$scope.showModal = false;
 
-		$scope.lectureViewed = false;
+		//$scope.lectureViewed = $rootScope.lectureViewed;
+
 		$scope.termSelected = false;
+
+		$scope.defVideoFile = null;
+		$scope.signVideoFile = null;
+		$scope.exVideoFile = null;
+
+		$scope.exampleExists = true;
+		$scope.definitionExists = true;
 
 		// console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
 		//$scope.lectureInfo = LectureInfo.data;
@@ -29,23 +37,63 @@
 			TermAPI.setActiveTerm(term);
 			$scope.termSelected = true;
 
-			// Once a term has been selected, video player shows the sign.
-			$scope.setSignVideo();
+			// Once a term has been selected, set all the appropriate video files
+			//$scope.setSignVideo();
+			$scope.signVideoFile = TermAPI.activeTerm.sign_video;
+			$scope.defVideoFile = TermAPI.activeTerm.def_video;
+			$scope.exVideoFile = TermAPI.activeTerm.ex_video;
+
+			//console.log('Def: ' + TermAPI.activeTerm.def_video);
+			//console.log('Ex: ' + TermAPI.activeTerm.ex_video);
+
+			if(TermAPI.activeTerm.def_video === undefined) {
+				$scope.definitionExists = false;
+			}
+			else {
+				$scope.definitionExists = true;
+			}
+
+			if(TermAPI.activeTerm.ex_video === undefined) {
+				$scope.exampleExists =  false;
+			}
+			else {
+				$scope.exampleExists = true;
+			}
+
+			// Switch to sign video and play it.
+			//$scope.playSignVideo();	
+			document.getElementById('sign-tab').click();
 		};
 
-		$scope.setSignVideo = function() {
-			$scope.activeVideoFile = TermAPI.activeTerm.sign_video;
+		$scope.playSignVideo = function() {
+			console.log('Play sign video...');
+			document.getElementById('signVideoPlayer').play();
 		};
 
-		// Set video player to the current term's definition video
-		$scope.setDefVideo = function() {
-			$scope.activeVideoFile = TermAPI.activeTerm.def_video;		
+		$scope.playDefVideo = function() {
+			console.log('Play definition video...');
+			document.getElementById('defVideoPlayer').play();
 		};
 
-		// Set video player to the current term's example video
-		$scope.setExVideo = function() {
-			$scope.activeVideoFile = TermAPI.activeTerm.ex_video;
+		$scope.playExVideo = function() {
+			console.log('Play example video...');
+			document.getElementById('exVideoPlayer').play();
 		};
+
+		// $scope.setSignVideo = function() {
+		// 	//$scope.activeVideoFile = TermAPI.activeTerm.sign_video;
+		// 	$scope.signVideoFile = TermAPI.activeTerm.sign_video;
+		// };
+
+		// // Set video player to the current term's definition video
+		// $scope.setDefVideo = function() {
+		// 	$scope.activeVideoFile = TermAPI.activeTerm.def_video;		
+		// };
+
+		// // Set video player to the current term's example video
+		// $scope.setExVideo = function() {
+		// 	$scope.activeVideoFile = TermAPI.activeTerm.ex_video;
+		// };
 
 		// Opens up modal window to play lecture video
 		$scope.openLectureVideo = function() {
@@ -84,9 +132,10 @@
 
 		$scope.$on('LectureEndedEvent', function() { // called by video-player
 			//console.log('Set lectureViewed to true');
-			$scope.lectureViewed = true;
+			$rootScope.lectureViewed = true;
 			$scope.$apply();
 		});
+		
 
 	}];
 

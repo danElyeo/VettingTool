@@ -7,7 +7,7 @@
 						<a href="#left">&lt;</a>
 					</div>
 					<div id="terms-container">
-						<strong>TERMS</strong>
+						<strong>RELATED TERMS</strong>
 						<div id="terms-scroller">
 							<div class="term-holder" ng-repeat="term in lectureInfo.terms" ng-click="setActiveTerm(term)">
 								<sign-button class="btn btn-default" ng-transclude>
@@ -22,11 +22,15 @@
 						<a href="#right">&gt;</a>
 					</div>
 				</div> <!-- end terms panel -->
-				<div id="video-panel">
+				<!-- <div id="video-panel">
 					<video-player path="{{activeVideoFile}}{{ext}}" type="{{format}}" width="500px"></video-player>
-				</div>
+				</div> -->
 
-			</div>
+				<!-- TEST CODE -->
+				
+				<!-- END TEST CODE -->
+
+			</div> <!-- close main-panel-->
 			<div id="side-panel" class="text-center"> <!-- contains options -->
 				<div id="lecture-btn-container">
 					<sign-button class="btn btn-success" ng-click="openLectureVideo()" ng-transclude>
@@ -35,7 +39,7 @@
 						</sign-video>
 					</sign-button>
 				</div>
-				<div id="options" ng-show="termSelected">
+				<!-- <div id="options" ng-show="false">
 					<strong>OPTIONS</strong>
 					
 					<sign-button id="sign-btn" class="btn btn-default option-btn" ng-click="setSignVideo()" ng-transclude>
@@ -66,12 +70,71 @@
 						<sign-video path="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px" localpath="yes">
 						</sign-video>
 					</sign-button>
-				</div> <!-- close div#options -->
-			<div> <!-- close main-panel -->
+				</div> -->
+			<div> <!-- close side-panel -->
 
 			<video-modal path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}" lectureViewed="lectureViewed"></video-modal>
+
 		</div>
-	</div>	
+	</div>
+	<div class="row text-center topic-bg" ng-show="termSelected">
+	<!-- <div class="col-xs-3"> --> <!-- required for floating -->
+	<!-- Nav tabs -->
+	<div class="col-md-12">
+		<div class="box-container">
+
+			<div id="panes">
+				<div class="tab-content">
+					<div class="tab-pane active" id="sign">
+						<video-player id="signVideoPlayer" path="{{signVideoFile + ext}}" type="{{format}}" width="500px"></video-player>
+					</div>
+					<div class="tab-pane" id="definition">
+						<video-player id="defVideoPlayer" path="{{defVideoFile + ext}}" type="{{format}}" width="500px"></video-player>
+					</div>
+					<div class="tab-pane" id="example">
+						<video-player id="exVideoPlayer" path="{{exVideoFile + ext}}" type="{{format}}" width="500px"></video-player>
+					</div>
+					<div class="tab-pane" id="vet">
+						<p>Please select a new term.</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="tabs" class="pull-right">
+				<ul class="nav nav-tabs tabs-right" id="option-tabs">
+					<li class="active">
+						<a id="sign-tab" href="lecture/#sign" data-toggle="tab" ng-click="playSignVideo()">
+							<div ng-show="showEnglish">Sign</div>
+							<sign-video path="videos/video_labels/SIGN_label_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes" hover="yes">
+							</sign-video>
+						</a>
+					</li>
+					<li ng-show="definitionExists">
+						<a href="/lecture/#definition" data-toggle="tab" ng-click="playDefVideo()">
+							<div ng-show="showEnglish">Definition</div>
+							<sign-video path="videos/video_labels/DEFINITION_LABEL_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes" hover="yes">
+							</sign-video>
+						</a>
+					</li>
+					<li ng-show="exampleExists">
+						<a href="/lecture/#example" data-toggle="tab" ng-click="playExVideo()">
+							<div ng-show="showEnglish">Example</div>
+							<sign-video path="videos/video_labels/EXAMPLE_label_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes" hover="yes">
+							</sign-video>			
+						</a>
+					</li>
+					<li>
+						<a href="/lecture/#vet" data-toggle="tab" ng-click="openVettingModal('lg')">
+							<div ng-show="showEnglish">Vet</div>
+							<sign-video path="videos/video_labels/vet_label_320{{ext}}" type="{{format}}" width="150px" localpath="yes" hover="yes">
+							</sign-video>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
 </section>
 
 <script>
