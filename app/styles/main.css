@@ -97,3 +97,17 @@ div.main-content {
   margin: 0 auto !important;
   float: none !important;
 }
+
+@keyframes glowing {
+  /*0% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #0094FF; box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }*/
+  0% { background-color: #A8B372; box-shadow: 0 0 3px #A8B372; }
+  50% { background-color: #F5ECE6; box-shadow: 0 0 10px #F5ECE6; }
+  100% { background-color: #A8B372; box-shadow: 0 0 3px #A8B372; }
+}
+
+
+.button-blink {
+  animation: glowing 1500ms infinite;
+}

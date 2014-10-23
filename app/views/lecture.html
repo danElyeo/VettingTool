@@ -7,11 +7,11 @@
 						<a href="#left">&lt;</a>
 					</div>
 					<div id="terms-container">
-						<strong>RELATED TERMS</strong>
+						<!-- <strong>RELATED TERMS</strong> -->
 						<div id="terms-scroller">
-							<div class="term-holder" ng-repeat="term in lectureInfo.terms" ng-click="setActiveTerm(term)">
-								<sign-button class="btn btn-default" ng-transclude>
-									<p ng-show="showEnglish">{{term.name}}</p>
+							<div class="term-holder" ng-repeat="term in lectureInfo.terms | filter: { vetted : false }" ng-click="setActiveTerm(term)">
+								<sign-button class="btn btn-default" ng-transclude ng-class="{'button-blink' : $index == nextTermIndex }">
+									<p ng-show="showEnglish">{{term.name}}{{term.vetted}}</p>
 									<sign-video width="150px" path="{{term.sign_video + ext}}" type="{{format}}">
 									</sign-video>
 								</sign-button>
@@ -26,14 +26,10 @@
 					<video-player path="{{activeVideoFile}}{{ext}}" type="{{format}}" width="500px"></video-player>
 				</div> -->
 
-				<!-- TEST CODE -->
-				
-				<!-- END TEST CODE -->
-
 			</div> <!-- close main-panel-->
 			<div id="side-panel" class="text-center"> <!-- contains options -->
 				<div id="lecture-btn-container">
-					<sign-button class="btn btn-success" ng-click="openLectureVideo()" ng-transclude>
+					<sign-button class="btn"  ng-class="lectureViewed ? 'btn-default' : 'button-blink' " ng-click="openLectureVideo()" ng-transclude>
 						<div ng-show="showEnglish">Lecture</div>
 						<sign-video path="videos/video_labels/LECTURE_label_FF_320_BS{{ext}}" type="{{format}}" localpath="yes" width="150px">
 						</sign-video>

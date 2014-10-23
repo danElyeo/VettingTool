@@ -9,20 +9,23 @@
 		"time_end":"2.56",
 		"sign_video":"CondExperiment/Terms/Analyze/Analyze_FF_320_BS_S",
 		"ex_video":"CondExperiment/Terms/Analyze/Analyze_Ex_320_FF_BS_S",
-		"def_video":"CondExperiment/Terms/Analyze/Analyze_Def_FF_320_BS_S"
+		"def_video":"CondExperiment/Terms/Analyze/Analyze_Def_FF_320_BS_S",
+		"vetted":false
 	},
 	{
 		"term_id":2,
 		"name":"Beaker",
 		"sign_video":"CondExperiment/Terms/Beaker/Beaker_FF_320_CB_S",
-		"def_video":"CondExperiment/Terms/Beaker/Beaker_Def_FF_320_CB_S"
+		"def_video":"CondExperiment/Terms/Beaker/Beaker_Def_FF_320_CB_S",
+		"vetted":false
 	},
 	{
 		"term_id":3,
 		"name":"Calculator",
 		"sign_video":"CondExperiment/Terms/Calculator/Calculator_FF_320_CB_S",
 		"ex_video":"CondExperiment/Terms/Calculator/Calculator_Ex_320_FF_CB_S",
-		"def_video":"CondExperiment/Terms/Calculator/Calculator_Def_320_FF_CB_S"
+		"def_video":"CondExperiment/Terms/Calculator/Calculator_Def_320_FF_CB_S",
+		"vetted":false
 	},
 	{
 		"term_id":4,
@@ -31,7 +34,8 @@
 		"time_end":"4.55",		
 		"sign_video":"CondExperiment/Terms/Control+Group/ControlGroup_FF_320_CB_S",
 		"ex_video":"CondExperiment/Terms/Control+Group/ControlGroup_Ex_320_FF_CB_S",
-		"def_video":"CondExperiment/Terms/Control+Group/ControlGroup_Def_FF_320_CB_S"
+		"def_video":"CondExperiment/Terms/Control+Group/ControlGroup_Def_FF_320_CB_S",
+		"vetted":false
 	},
 	{
 		"term_id":5,
@@ -40,7 +44,8 @@
 		"time_end":"2.14",
 		"sign_video":"CondExperiment/Terms/Research/Research_FF_320_BS_S",
 		"ex_video":"CondExperiment/Terms/Research/Research_Ex_320_FF_BS_S",
-		"def_video":"CondExperiment/Terms/Research/Research_Def_320_FF_BS_S"
+		"def_video":"CondExperiment/Terms/Research/Research_Def_320_FF_BS_S",
+		"vetted":false
 	}
 	]
 }

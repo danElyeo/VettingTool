@@ -10,6 +10,7 @@
 		console.log('Lecture file: ' + LectureInfo.data.lecture_path);
 		$scope.lectureInfo = LectureInfo.data;
 		LectureAPI.currentLectureFile = LectureInfo.data.lecture_path;
+		TermAPI.initTerms($scope.lectureInfo.terms);
 
 		$scope.activeVideoFile = null;
 
@@ -28,6 +29,7 @@
 
 		$scope.exampleExists = true;
 		$scope.definitionExists = true;
+		$scope.showNextTerm = false;
 
 		// console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
 		//$scope.lectureInfo = LectureInfo.data;
@@ -42,6 +44,8 @@
 			$scope.signVideoFile = TermAPI.activeTerm.sign_video;
 			$scope.defVideoFile = TermAPI.activeTerm.def_video;
 			$scope.exVideoFile = TermAPI.activeTerm.ex_video;
+
+			$scope.nextTermIndex = -1;
 
 			//console.log('Def: ' + TermAPI.activeTerm.def_video);
 			//console.log('Ex: ' + TermAPI.activeTerm.ex_video);
@@ -125,6 +129,12 @@
 
 				console.log('Send to Backend: ' + JSON.stringify(objToSend));
 
+				TermAPI.activeTerm.vetted = true;
+
+				//$scope.nextTermIndex = TermAPI.getNextTermIndex();
+				//$scope.$apply();
+				$scope.nextTermIndex = 0;
+
 			}, function () {
 				$log.info('Modal dismissed at: ' + new Date());
 			});
@@ -133,7 +143,17 @@
 		$scope.$on('LectureEndedEvent', function() { // called by video-player
 			//console.log('Set lectureViewed to true');
 			$rootScope.lectureViewed = true;
+			//$scope.$apply();
+
+			//$scope.nextTermIndex = TermAPI.getNextTermIndex();
+			$scope.nextTermIndex = 0;
+			//$scope.nextTermIndex = -1;
+			console.log('Next Term Index: ' + $scope.nextTermIndex);
 			$scope.$apply();
+			// if($scope.nextTermIndex >= 0) {
+			// 	$scope.showNextTerm = true; // set next term to blink
+			// }
+
 		});
 		
 
