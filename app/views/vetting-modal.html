@@ -1,21 +1,26 @@
 <div class="modal-header">
-    <h3 class="modal-title">{{currIndex+1}}/{{questionCount}}</h3>
-    <sign-video ng-show="currIndex==0" class="center-block" path="videos/vetting_questions/vetting_a_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
-    <sign-video ng-show="currIndex==1" class="center-block" path="videos/vetting_questions/vetting_b_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
-    <sign-video ng-show="currIndex==2" class="center-block" path="videos/vetting_questions/vetting_c_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
-    <sign-video ng-show="currIndex==3" class="center-block" path="videos/vetting_questions/vetting_d_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
-    <sign-video ng-show="currIndex==4" class="center-block" path="videos/vetting_questions/vetting_e_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
-    <sign-video ng-show="currIndex==5" class="center-block" path="videos/vetting_questions/vetting_f_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
-    <sign-video ng-show="currIndex==6" class="center-block" path="videos/vetting_questions/vetting_g_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <h3 class="modal-title">{{currQuestionNum}}/{{questionCount}}</h3>
+    <sign-video ng-show="currQuestionNum==1" class="center-block" path="videos/vetting_questions/vetting_a_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <sign-video ng-show="currQuestionNum==2" class="center-block" path="videos/vetting_questions/vetting_b_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <sign-video ng-show="currQuestionNum==3" class="center-block" path="videos/vetting_questions/vetting_c_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <sign-video ng-show="currQuestionNum==4" class="center-block" path="videos/vetting_questions/vetting_d_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <sign-video ng-show="currQuestionNum==5" class="center-block" path="videos/vetting_questions/vetting_e_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <sign-video ng-show="currQuestionNum==6" class="center-block" path="videos/vetting_questions/vetting_f_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
+    <sign-video ng-show="currQuestionNum==7" class="center-block" path="videos/vetting_questions/vetting_g_320{{ext}}" localpath="yes" hover="yes"type="{{format}}"></sign-video>
 </div>
 <div class="modal-body text-center">
     
     <p ng-show="showEnglish">{{currQuestion.question}}</p>
+    <likert-panel ng-transclude>
+        <button id="btn_prev" class="btn btn-primary btn-lg pull-left" ng-click="goToPrev()"><span class="glyphicon glyphicon-chevron-left"></span></button>
+        <button id="btn_next" class="btn btn-primary btn-lg pull-right" ng-click="goToNext()"><span class="glyphicon glyphicon-chevron-right"></button>
+        <!-- <likert-scale answers="answers" index="currIndex" qtype="{{questions[currIndex].type}}"></likert-scale> -->
+        <likert-scale></likert-scale>
+    </likert-panel>
     
-    <likert-scale answers="answers" index="currIndex" qtype="{{questions[currIndex].type}}"></likert-scale>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary pull-left" ng-click="goToPrev()">&lt;</button>
-    <button class="btn btn-primary pull-right" ng-click="goToNext()">&gt;</button>
+    <!-- <button class="btn btn-primary pull-left" ng-click="goToPrev()">&lt;</button>
+    <button class="btn btn-primary pull-right" ng-click="goToNext()">&gt;</button> -->
     <button id="submit-answers-btn" class="btn btn-success center-block" ng-click="submit()" ng-disabled="!completed">Submit</button>
 </div>

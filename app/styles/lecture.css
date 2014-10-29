@@ -113,43 +113,6 @@
 	margin-top:5px;
 }
 
-#likert table tr td {
-	padding-left: 20px;
-	padding-right: 20px;
-
-}
-
-#likert table {
-	display:inline-block;
-	/*border:1px solid black;*/
-}
-
-#likert img {
-	display:inline-block;
-	/*border:1px solid black;*/
-	vertical-align: bottom;
-	margin-right:-10px;
-	margin-left:-10px;
-}
-
-#worst {
-	-moz-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    transform: scaleY(-1);
-    filter: flipv; /*IE*/
-}
-
-#binary table tr td {
-	padding-left:20px;
-	padding-right:20px;
-}
-
-#submit-answers-btn {
-	float:none;
-	margin-right:auto;
-	margin-left:auto;
-}
-
 #tabs {
 	display:inline-block;
 	/*border:1px solid red;*/

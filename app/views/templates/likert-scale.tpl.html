@@ -10,11 +10,11 @@
             <td><label for="SA">5</label></td>
         </tr>
         <tr>
-            <td><input type="radio" ng-model="answers[index]" name="likert" id="SD" value="1"></td>
-            <td><input type="radio" ng-model="answers[index]" name="likert" id="D" value="2"></td>
-            <td><input type="radio" ng-model="answers[index]" name="likert" id="N" value="3"></td>
-            <td><input type="radio" ng-model="answers[index]" name="likert" id="A" value="4"></td>
-            <td><input type="radio" ng-model="answers[index]" name="likert" id="SA" value="5"></td>
+            <td><input type="radio" ng-model="answer" name="likert" id="SD" value="-2"></td>
+            <td><input type="radio" ng-model="answer" name="likert" id="D" value="-1"></td>
+            <td><input type="radio" ng-model="answer" name="likert" id="N" value="0"></td>
+            <td><input type="radio" ng-model="answer" name="likert" id="A" value="1"></td>
+            <td><input type="radio" ng-model="answer" name="likert" id="SA" value="2"></td>
         </tr>
         </table>
         <img id="best" width="40px" src="images/thumbs_up.png">
@@ -34,8 +34,8 @@
             </td>
         </tr>
         <tr>
-            <td><input type="radio" ng-model="answers[index]" name="binary" id="radio_false" value="true"></td>
-            <td><input type="radio" ng-model="answers[index]" name="binary" id="radio_true" value="false"></td>
+            <td><input type="radio" ng-model="answer" name="binary" id="radio_false" value="true"></td>
+            <td><input type="radio" ng-model="answer" name="binary" id="radio_true" value="false"></td>
         </tr>
         </table>
     </div>

@@ -1,10 +1,11 @@
 {
-	"lecture_path":"CondExperiment/Lecture/CondExperiment_lecture_480",
+	"lecture_path":"CondExperiment/Lecture/CondExperiment_lecture_1080",
 	"terms": 
 	[{
 
 		"term_id":1,
-		"name":"Analyze",
+		"name":"analyze",
+		"display_name":"Analyze",
 		"time_start":"2.44",
 		"time_end":"2.56",
 		"sign_video":"CondExperiment/Terms/Analyze/Analyze_FF_320_BS_S",

@@ -2,8 +2,8 @@
 
 (function() {
 
-	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI', 'LectureAPI',
-	function($scope, $rootScope, $routeParams, $log, $modal, LectureInfo, TermAPI, LectureAPI) {
+	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI', 'LectureAPI', 'VettingAPI',
+	function($scope, $rootScope, $routeParams, $log, $modal, LectureInfo, TermAPI, LectureAPI, VettingAPI) {
 		console.log('Initializing Lecture Controller');
 
 		// Variables
@@ -30,6 +30,10 @@
 		$scope.exampleExists = true;
 		$scope.definitionExists = true;
 		$scope.showNextTerm = false;
+
+
+		// Initialize vetting API everytime we change to a new lecture page.
+		VettingAPI.init();
 
 		// console.log('LectureInfo: ' + JSON.stringify(LectureInfo.data));
 		//$scope.lectureInfo = LectureInfo.data;
@@ -122,6 +126,7 @@
 			modalInstance.result.then(function (answers) {//selectedItem) {
 				// Create JSON for answers and send to backend here.
 				var objToSend = {
+					'userId':'currentUser',
 					'lectureId':$scope.lectureId,
 					'termId':TermAPI.activeTerm.term_id,
 					'answers':answers
