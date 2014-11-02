@@ -41,6 +41,8 @@
 
 		$scope.setActiveTerm = function(term) {
 			TermAPI.setActiveTerm(term);
+			VettingAPI.init();
+
 			$scope.termSelected = true;
 
 			// Once a term has been selected, set all the appropriate video files
