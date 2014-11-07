@@ -14,6 +14,9 @@
 
 		$scope.activeVideoFile = null;
 
+		$scope.contextStart = null;
+		$scope.contextEnd = null;
+
 		$scope.lectureId = $routeParams.lectureId;
 		console.log('LectureId: ' + $scope.lectureId);
 
@@ -45,6 +48,9 @@
 
 			$scope.termSelected = true;
 
+			$scope.contextStart = TermAPI.activeTerm.time_start;
+			$scope.contextEnd = TermAPI.activeTerm.time_end;
+
 			// Once a term has been selected, set all the appropriate video files
 			//$scope.setSignVideo();
 			$scope.signVideoFile = TermAPI.activeTerm.sign_video;
@@ -73,6 +79,12 @@
 			// Switch to sign video and play it.
 			//$scope.playSignVideo();	
 			document.getElementById('sign-tab').click();
+		};
+
+		$scope.playContextVideo = function() {
+			console.log('Play context video...');
+			//document.getElementById('contextVideoPlayer').play();
+			$scope.$broadcast('PlayContextVideo');
 		};
 
 		$scope.playSignVideo = function() {
@@ -128,10 +140,10 @@
 			modalInstance.result.then(function (answers) {//selectedItem) {
 				// Create JSON for answers and send to backend here.
 				var objToSend = {
-					'userId':'currentUser',
-					'lectureId':$scope.lectureId,
-					'termId':TermAPI.activeTerm.term_id,
-					'answers':answers
+					"userId":"currentUser",
+					"lectureId":$scope.lectureId,
+					"termId":TermAPI.activeTerm.term_id,
+					"answers":answers
 				};
 
 				console.log('Send to Backend: ' + JSON.stringify(objToSend));

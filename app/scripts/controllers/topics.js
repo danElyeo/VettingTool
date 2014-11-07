@@ -30,6 +30,7 @@
 		// 2. Extract topics from the lecture data
 		// Generate the view based on number of topics assigned to current user
 		
+		console.log(JSON.stringify(AssignedLectures.data));
 		LectureAPI.setLectures(AssignedLectures.data.lectures);
 		TopicAPI.setTopics(LectureAPI.lectures);
 		

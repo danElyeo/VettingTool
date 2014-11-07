@@ -1,13 +1,18 @@
 .topic-container {
 	/*width:200px;*/
 	height:400px;
-	border:2px solid black;
-	border-radius: 20px;
+	/*border:2px solid black;*/
+	border-radius: 10px;
 	display:inline-block;
 	margin:10px;
 	background-color: white;
 	vertical-align: top;
-	padding:10px;
+	padding:20px;
+	overflow-y:auto;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	background-color: white;
 }
 
 .topic-bg {

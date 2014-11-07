@@ -4,14 +4,15 @@
 			<div id="main-panel" ng-show="lectureViewed"> <!-- contains terms and video player -->
 				<div id="terms-panel">
 					<div id="left-btn">
-						<a href="#left">&lt;</a>
+						<a href="#left"><span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
 					</div>
 					<div id="terms-container">
 						<!-- <strong>RELATED TERMS</strong> -->
 						<div id="terms-scroller">
 							<div class="term-holder" ng-repeat="term in lectureInfo.terms | filter: { vetted : false }" ng-click="setActiveTerm(term)">
 								<sign-button class="btn btn-default" ng-transclude ng-class="{'button-blink' : $index == nextTermIndex }">
-									<p ng-show="showEnglish">{{term.name}}{{term.vetted}}</p>
+									<p ng-show="showEnglish">{{term.display_name}}</p>
 									<sign-video width="150px" path="{{term.sign_video + ext}}" type="{{format}}">
 									</sign-video>
 								</sign-button>
@@ -19,7 +20,7 @@
 						</div> <!-- end scroller -->
 					</div> <!-- end container -->
 					<div id="right-btn">
-						<a href="#right">&gt;</a>
+						<a href="#right"><span class="glyphicon glyphicon-chevron-right"></span></a>
 					</div>
 				</div> <!-- end terms panel -->
 				<!-- <div id="video-panel">
@@ -84,6 +85,10 @@
 					<div class="tab-pane active" id="sign">
 						<video-player id="signVideoPlayer" path="{{signVideoFile + ext}}" type="{{format}}" width="500px"></video-player>
 					</div>
+					<div class="tab-pane" id="context">
+						<context-video id="contextVideoPlayer" width="500px" path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}" start="{{contextStart}}" end="{{contextEnd}}" controls>
+						</context-video>
+					</div>
 					<div class="tab-pane" id="definition">
 						<video-player id="defVideoPlayer" path="{{defVideoFile + ext}}" type="{{format}}" width="500px"></video-player>
 					</div>
@@ -103,6 +108,12 @@
 							<div ng-show="showEnglish">Sign</div>
 							<sign-video path="videos/video_labels/SIGN_label_FF_320_BS{{ext}}" type="{{format}}" width="150px" localpath="yes" hover="yes">
 							</sign-video>
+						</a>
+					</li>
+					<li>
+						<a href="/lecture/#context" data-toggle="tab" ng-click="playContextVideo()">
+							<div ng-show="showEnglish">Context</div>
+							<p>Context</p>
 						</a>
 					</li>
 					<li ng-show="definitionExists">

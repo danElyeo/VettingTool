@@ -19,7 +19,8 @@
 (function() {
 
 	var MainCtrl = ['$scope', '$rootScope', 'UserAPI', function($scope, $rootScope, UserAPI) {
-		$rootScope.username = 'deafine_user';
+		$rootScope.username = 'jhenner';
+		$rootScope.userpass = 'asl123';
 		$rootScope.showEnglish = false;
 		$rootScope.usingSafari = false;
 		$rootScope.format = 'video/webm';
@@ -46,8 +47,10 @@
 		};
 
 		$scope.login = function() {
-			//UserAPI.login();
-			console.log('Current User: ' + UserAPI.user_id);
+			UserAPI.login($scope.username, $scope.userpass);
+			//console.log('Current User: ' + UserAPI.user_id);
+			//console.log('Login username: ' + $scope.username);
+			//console.log('Password: ' + $scope.userpass);
 		};
 
 		$scope.detectIfSafari();

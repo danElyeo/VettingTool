@@ -5,14 +5,14 @@
 			<div class="topic-container" ng-repeat="topic in topics">
 				<h3>{{topic}}</h3>
 				<!-- For each lecture with this topic, show the preview video -->
-				<a ng-repeat="lecture in lectures | filter: { topic:topic }" href="#/lecture/{{lecture.id}}" ng-click="selectLecture(lecture.id)">
+				<a ng-repeat="lecture in lectures | filter: { topic:topic }" href="#/lecture/{{lecture.lecture_name}}" ng-click="selectLecture(lecture.id)">
 					<!-- <div class="lecture-holder center-block">
 						<p ng-show="showEnglish">{{lecture.name}}</p>
 						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
 						</sign-video>
 					</div> -->
 					<sign-button class="btn btn-default center-block lecture-holder" ng-transclude>
-						<p ng-show="showEnglish">{{lecture.name}}</p>
+						<p ng-show="showEnglish">{{lecture.display_name}}</p>
 						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
 						</sign-video>
 					</sign-button>
