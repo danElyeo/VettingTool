@@ -5,6 +5,7 @@
 		var lectureAPI = {};
 
 		lectureAPI.lectures = [];
+		lectureAPI.currentLecture = "";
 
 		lectureAPI.currentLectureFile = '';
 

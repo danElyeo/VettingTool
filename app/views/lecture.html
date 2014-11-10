@@ -86,7 +86,7 @@
 						<video-player id="signVideoPlayer" path="{{signVideoFile + ext}}" type="{{format}}" width="500px"></video-player>
 					</div>
 					<div class="tab-pane" id="context">
-						<context-video id="contextVideoPlayer" width="500px" path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}" start="{{contextStart}}" end="{{contextEnd}}" controls>
+						<context-video id="contextVideoPlayer" width="500px" path="{{lectureInfo.lecture_path}}{{ext}}" format="{{format}}" start="{{contextStart}}" end="{{contextEnd}}" preload="auto">
 						</context-video>
 					</div>
 					<div class="tab-pane" id="definition">

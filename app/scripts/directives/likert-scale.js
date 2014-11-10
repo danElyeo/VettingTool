@@ -74,6 +74,8 @@
 					} else {
 						console.log('Error: Not supposed to get here.');
 					}
+
+					$scope.answer = null;
 				};
 
 				$scope.qtype = VettingAPI.getCurrQuestion().type;
@@ -111,7 +113,7 @@
 					//console.log('Answers length: ' + $scope.answers.length);
 				});
 
-
+				// Watch for changes in the answer array
 				$scope.$watch('answer', function() {
 					if($scope.answer !== undefined) {
 						//console.log('Answer is ' + getAnswer());

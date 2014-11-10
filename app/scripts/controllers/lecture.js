@@ -2,8 +2,8 @@
 
 (function() {
 
-	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', 'LectureInfo', 'TermAPI', 'LectureAPI', 'VettingAPI',
-	function($scope, $rootScope, $routeParams, $log, $modal, LectureInfo, TermAPI, LectureAPI, VettingAPI) {
+	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', '$http', 'LectureInfo', 'TermAPI', 'LectureAPI', 'VettingAPI',
+	function($scope, $rootScope, $routeParams, $log, $modal, $http, LectureInfo, TermAPI, LectureAPI, VettingAPI) {
 		console.log('Initializing Lecture Controller');
 
 		// Variables
@@ -69,7 +69,9 @@
 				$scope.definitionExists = true;
 			}
 
-			if(TermAPI.activeTerm.ex_video === undefined) {
+			if(TermAPI.activeTerm.ex_video === null || 
+				TermAPI.activeTerm.ex_video === undefined ||
+				TermAPI.activeTerm.ex_video === "") {
 				$scope.exampleExists =  false;
 			}
 			else {
@@ -139,14 +141,31 @@
 
 			modalInstance.result.then(function (answers) {//selectedItem) {
 				// Create JSON for answers and send to backend here.
-				var objToSend = {
-					"userId":"currentUser",
-					"lectureId":$scope.lectureId,
-					"termId":TermAPI.activeTerm.term_id,
-					"answers":answers
-				};
+				//console.log('Sending answers: ' + answers);
 
-				console.log('Send to Backend: ' + JSON.stringify(objToSend));
+				$http.post('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/vetting/jhenner/experiment', 
+				{	
+					"term-id":TermAPI.activeTerm.term_id,
+					"answers":VettingAPI.getAnswers()
+				})
+				.success(function(data) {
+					console.log('POST successful.');
+					console.log('RETURN data: ' + JSON.stringify(data));
+				})
+				.error(function(data, status, headers, config) {
+					    // called asynchronously if an error occurs
+					    // or server returns response with an error status.
+				});
+
+				
+				// var objToSend = {
+				// 	"userId":"currentUser",
+				// 	"lectureId":$scope.lectureId,
+				// 	"termId":TermAPI.activeTerm.term_id,
+				// 	"answers":answers
+				// };
+
+				//console.log('Send to Backend: ' + JSON.stringify(objToSend));
 
 				TermAPI.activeTerm.vetted = true;
 

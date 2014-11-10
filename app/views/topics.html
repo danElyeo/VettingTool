@@ -13,7 +13,7 @@
 					</div> -->
 					<sign-button class="btn btn-default center-block lecture-holder" ng-transclude>
 						<p ng-show="showEnglish">{{lecture.display_name}}</p>
-						<sign-video width="150px" path="{{lecture.preview + ext}}" type="{{format}}">
+						<sign-video width="150px" preload="auto" path="{{lecture.preview + ext}}" type="{{format}}">
 						</sign-video>
 					</sign-button>
 				</a>

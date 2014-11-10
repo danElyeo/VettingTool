@@ -14,6 +14,7 @@
 				//console.log('Launching custom modal');
 
 				//$element.modal('show');
+				$scope.videoLoaded = false;
 
 				$scope.$on('openLectureVideo', function() {
 					$scope.showModal();
@@ -30,6 +31,11 @@
 					$scope.$broadcast('PauseLecture');
 				});
 
+				// $element.on('load', function() {
+				// 	$scope.videoLoaded = true;
+				// 	console.log('Video loaded.');
+				// 	//alert('Video loaded');
+				// });
 
 				$scope.showModal = function() {
 					$element.modal('show');

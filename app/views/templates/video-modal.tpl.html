@@ -6,7 +6,8 @@
 				<h4 class="modal-title" id="myModalLabel">Lecture</h4>
 			</div>
 			<div class="modal-body">
-				<video-player class="center-block" path="{{path}}" type="{{format}}" width="500px" lecture="yes"></video-player>
+				<video-player ng-show="videoLoaded" class="center-block" path="{{path}}" type="{{format}}" width="500px" lecture="yes" preload="auto" controls></video-player>
+				<!-- <img ng-hide="videoLoaded" src="images/ajax-loader.gif"> -->
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-lg center-block" data-dismiss="modal" ng-disabled="!lectureViewed"><span class="glyphicon glyphicon-ok"></span></button>
