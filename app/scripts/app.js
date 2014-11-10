@@ -10,10 +10,9 @@
  */
 angular
   .module('vettingToolApp', [
-    'ngAnimate',
-    'ngCookies',
     'ngResource',
     'ngRoute',
+    'ngCookies',
     'ui.bootstrap',
     'angular-loading-bar'
   ])
@@ -22,18 +21,39 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve: {
+          loggedIn: ['$cookieStore', '$location', 'UserAPI', function($cookieStore, $location, UserAPI) {
+            console.log('Resolving log in...');
+            if($cookieStore.get('deafine_user') !== undefined) {
+              console.log('User logged in previously...');
+              UserAPI.username = $cookieStore.get('deafine_user');
+              $location.path('/topics');
+            } else {
+              console.log('User is not logged in.');
+            }
+          }]
+        }
       })
       .when('/topics', {
         templateUrl: 'views/topics.html',
         controller: 'TopicsCtrl',
         controllerAs: 'topic',
         resolve: {
-          AssignedLectures: ['LectureAPI', function(LectureAPI) {
-            return LectureAPI.getAssignedLectures().success(function(data) {
-              console.log('Resolved: Get Lecture Data...');
-              return data;
-            });
+          AssignedLectures: ['$cookieStore', '$location','LectureAPI', 'UserAPI', function($cookieStore, $location, LectureAPI, UserAPI) {
+            if($cookieStore.get('deafine_user') !== undefined) {
+              UserAPI.username = $cookieStore.get('deafine_user');
+              return LectureAPI.getAssignedLectures().success(function(data) {
+                console.log('Resolved: Get Lecture Data...');
+                return data;
+              });
+            } else {
+              $location.path('/');
+            }
+            // return LectureAPI.getAssignedLectures().success(function(data) {
+            //   console.log('Resolved: Get Lecture Data...');
+            //   return data;
+            // });
           }]
         }
       })

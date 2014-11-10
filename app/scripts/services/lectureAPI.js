@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-	var LectureAPI = ['$http', function($http) {
+	var LectureAPI = ['$http', 'UserAPI', function($http, UserAPI) {
 		var lectureAPI = {};
 
 		lectureAPI.lectures = [];
@@ -13,7 +13,7 @@
 		// Gives user_id, expects a list of lectures in return
 		lectureAPI.getAssignedLectures = function() {
 			//return $http.get('data/lectures.json');
-			return $http.get('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/lectures/jhenner');
+			return $http.get('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/lectures/' + UserAPI.username);
 		};
 
 		// Stores assigned lectures into an array
@@ -32,7 +32,7 @@
 		// Gives lecture_id, expects lecture_info json in return
 		lectureAPI.getLectureInfo = function(lectureId) {
 			//return $http.get('data/' + lectureId + '.json');
-			return $http.get('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/jhenner/' + lectureId);
+			return $http.get('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/' + UserAPI.username + '/' + lectureId);
 		};
 
 		return lectureAPI;	

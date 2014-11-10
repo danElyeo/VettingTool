@@ -7,7 +7,7 @@
   </p> -->
   <br>
   <div class="center-block" style="width:200px">
-    <form role="form">
+    <form role="form" ng-keypress="($event.which === 13)?login():0">
       <div class="form-group text-left">
         <label for="username_txt">Username</label>
         <input type="text" class="form-control" id="username_txt" placeholder="Username" ng-model="username">
@@ -18,7 +18,7 @@
       </div>
     </form>
   <div>
-  <p><a class="btn btn-lg btn-success" ng-click="login()" ng-href="#/topics">Get Started</a></p>
+  <p><a class="btn btn-lg btn-success" ng-click="login()" ng-href="javascript:">Get Started</a></p>
 </div>
 
 <!-- <div class="row marketing">

@@ -29,8 +29,9 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a ng-href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-          <li><a ng-href="#/topics"><span class="glyphicon glyphicon-book"></a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+          <!-- <li><a ng-href="#/topics"><span class="glyphicon glyphicon-book"></a></li> -->
+          <li><a href="" ng-click="signout()" ng-show="(currentUser != null)">Signout {{currentUser}}</a></li>
           <!-- <li><a ng-href="#">Contact</a></li> -->
         </ul>
         <h3 class="text-muted">ASL STEM Vetting Tool</h3>
@@ -91,7 +92,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!--<script src="bower_components/angular-animate/angular-animate.js"></script>-->
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>

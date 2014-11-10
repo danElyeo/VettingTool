@@ -2,8 +2,8 @@
 
 (function() {
 
-	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', '$http', 'LectureInfo', 'TermAPI', 'LectureAPI', 'VettingAPI',
-	function($scope, $rootScope, $routeParams, $log, $modal, $http, LectureInfo, TermAPI, LectureAPI, VettingAPI) {
+	var LectureCtrl = ['$scope', '$rootScope', '$routeParams', '$log', '$modal', '$http', 'LectureInfo', 'TermAPI', 'LectureAPI', 'VettingAPI', 'UserAPI',
+	function($scope, $rootScope, $routeParams, $log, $modal, $http, LectureInfo, TermAPI, LectureAPI, VettingAPI, UserAPI) {
 		console.log('Initializing Lecture Controller');
 
 		// Variables
@@ -143,7 +143,7 @@
 				// Create JSON for answers and send to backend here.
 				//console.log('Sending answers: ' + answers);
 
-				$http.post('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/vetting/jhenner/experiment', 
+				$http.post('http://ec2-54-86-73-168.compute-1.amazonaws.com:5000/vetting/' + UserAPI.username + '/' + $scope.lectureId, 
 				{	
 					"term-id":TermAPI.activeTerm.term_id,
 					"answers":VettingAPI.getAnswers()
